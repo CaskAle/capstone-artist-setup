@@ -39,4 +39,8 @@ The Bender pipeline for Teagan's Capstone Project is being hosted on her parent'
 
 ## Install Blender Pipeline Tools
 
-## 
+## Set up the Pipeline
+
+## Running Blender
+
+## Set up Flamenco Rendering
