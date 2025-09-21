@@ -37,9 +37,39 @@ The Bender pipeline for Teagan's Capstone Project is being hosted on her parent'
 
 **_NOTE:_**  It is not necessary to keep the VPN running at all times.  You may deavtivate it when you are not working on the pipeline.  However, VPN is only used for accessing the pipeline serversand you really shouldn't even know it is there.  One downside to stopping the VPN is that the Flamenco Rendering Farm will not be able to use your computer as a part of the farm while you are disconnected.
 
-## Install Blender Pipeline Tools
+## Install python
+
+The Blender Studio Pipeline is heavily dependent on the Python programming language.  Python, and some specific Python modules need to be installed and configured on your local system.
+
+1. Download the latest python release from: <https://www.python.org/downloads/windows/>
+
+   **_NOTE:_** The Latest Python 3 Release is, as of 20 Sept, is 3.13.7
+
+1. On the first page of the installer, ensure the option labeled “Add Python to PATH” is enabled.
+
+1. After installation completes, open a command prompt or terminal window and enter: `python --version`.  If the installation was successful, the Python version you installed should be printed in your command prompt or terminal window.
 
 ## Set up the Pipeline
+
+There is a python script that will set up the pipeline for the project.  It will ensure that everyone is using the same verion of blender and that all the appropriate extensions are installed.
+
+1. Open a windows command prompt and execute the following commands.
+
+   ```bat
+   mkdir c:\blender_pipeline
+   cd c:\blender_pipeline
+   mkdir capstone
+   mkdir capstone\shared
+   mkdir capstone\svn
+   mkdir flamenco
+   ```
+
+1. Run the **deployment_assistant.py** script.
+
+   ```bat
+   cd capstone\svn
+   deployment_assistant.py
+   ```
 
 ## Running Blender
 
