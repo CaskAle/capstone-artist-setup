@@ -6,9 +6,7 @@ The Bender pipeline for Teagan's Capstone Project is being hosted on her parent'
 
 1. Install the WireGuard app by clicking the following link: <https://download.wireguard.com/windows-client/wireguard-installer.exe>.
 
-   **_NOTE:_** Rather than download the file, you can choose to just run the program by choosing **Open** from the window that pops up when you click the link.  In this case, you will not need to remember where the installer was downloaded to in order to run it and delete it later.  Normally, this is a security risk that I do not encourage.  However, since I have created these steps specifically for Teagan's team, I have vetted the process and trust it.
-
-   **_NOTE 2:_** If you prefer to download the install program, make note of where you downloaded the file so that you can run it and then delete it when finished.  Open the folder where you downloaded the file installer and double click it to start the program.
+   **_NOTE:_** Rather than download the file, you can choose to just run the program by choosing **Open** from the window that pops up when you click the link.  This way, you will not need to remember where the installer was downloaded to in order to run it and delete it later.  **Normally, this is a security risk that I do not encourage**.  However, since I have created these steps specifically for Teagan's team, I have vetted the process and trust it.  If you prefer to download the install program, make note of where you downloaded the file so that you can run it and then delete it when finished.  Open the folder where you downloaded the file installer and double click it to start the program.
 
 1. Click **Yes** when asked, **Do you want to allow this app to make changes to your device?**
 
@@ -45,9 +43,28 @@ The Blender Studio Pipeline is heavily dependent on the Python programming langu
 
    **_NOTE:_** The Latest Python 3 Release is, as of 20 Sept, is 3.13.7
 
-1. On the first page of the installer, ensure the option labeled “Add Python to PATH” is enabled.
+   **_NOTE:_** Just like the Wireguard installed, rather than download the file, you can choose to just run the program by choosing **Open** from the window that pops up when you click the link.  This way, you will not need to remember where the installer was downloaded to in order to run it and delete it later.  **Normally, this is a security risk that I do not encourage**.  However, since I have created these steps specifically for Teagan's team, I have vetted the process and trust it.  If you prefer to download the install program, make note of where you downloaded the file so that you can run it and then delete it when finished.  Open the folder where you downloaded the file installer and double click it to start the program.
 
-1. After installation completes, open a command prompt or terminal window and enter: `python --version`.  If the installation was successful, the Python version you installed should be printed in your command prompt or terminal window.
+1. On the first page of the Python installer, there are two check boxes:  
+
+   ```text
+   o Use admin priveledges when installing py.exe
+   o Add python.exe to PATH
+   ```
+
+   be sure to check both of these before clicking **Install Now**.
+
+   **_NOTE:_** There is no need to use the **Customize installation** option.
+
+1. After the installation completes, open a command prompt or terminal window and enter:  
+`python --version`  
+If the installation was successful, the Python version you installed should be printed in your command prompt or terminal window.
+
+1. Verify that pip is installed by entering:  
+`python -m ensurepip --upgrade`
+
+1. Install the **requests** Python package for the current user:  
+`python -m pip install --user requests`
 
 ## Set up the Pipeline
 
