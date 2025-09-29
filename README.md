@@ -19,6 +19,7 @@ The Bender pipeline for Teagan's Capstone Project is being hosted on her parent'
 1. Navigate to the folder where you saved the config file I sent you and select the file and click **Open**.
 
 1. At this point, the VPN should be ready to go and you should see an **Activate** button.  Click that button to activate the VPN.
+
    **_NOTE:_** The **Activate** button will change to **Deactivate** when the VPN is active/
 
 1. If all has gone well, the VPN sould now be active.  Here are some ways to verify that the VPN is working properly.
@@ -28,10 +29,10 @@ The Bender pipeline for Teagan's Capstone Project is being hosted on her parent'
    - There should be some data transferred showing in the peer section of the wireguard app.
 
    - Open a **Command Prompt** and type:  
-   `ping mordecai.lab.ankersen.dev`  
-   You should see a response similar to:  
-   `Reply from 192.168.20.24 time=5ms`  
-   If you see any other response, there is a connection issue and we will need to debug.
+   `ping -c3 mordecai.lab.ankersen.dev` or  
+   `ping -c3 rigby.lab.ankersen.dev`.  
+   You should see a response similar to: 
+   **Reply from 192.168.20.24 time=5ms**.  If you see any other response, there is a connection issue and we will need to debug.
 
 **_NOTE:_**  It is not necessary to keep the VPN running at all times.  You may deavtivate it when you are not working on the pipeline.  However, VPN is only used for accessing the pipeline serversand you really shouldn't even know it is there.  One downside to stopping the VPN is that the Flamenco Rendering Farm will not be able to use your computer as a part of the farm while you are disconnected.
 
@@ -43,24 +44,24 @@ The Blender Studio Pipeline is heavily dependent on the Python programming langu
 
    **_NOTE:_** The Latest Python 3 Release is, as of 20 Sept, is 3.13.7
 
-   **_NOTE:_** Just like the Wireguard installed, rather than download the file, you can choose to just run the program by choosing **Open** from the window that pops up when you click the link.  This way, you will not need to remember where the installer was downloaded to in order to run it and delete it later.  **Normally, this is a security risk that I do not encourage**.  However, since I have created these steps specifically for Teagan's team, I have vetted the process and trust it.  If you prefer to download the install program, make note of where you downloaded the file so that you can run it and then delete it when finished.  Open the folder where you downloaded the file installer and double click it to start the program.
+   **_NOTE:_** Just like the Wireguard install, rather than download the file, you can choose to just run the program by choosing **Open** from the window that pops up when you click the link.  This way, you will not need to remember where the installer was downloaded to in order to run it and delete it later.  **Normally, this is a security risk that I do not encourage**.  However, since I have created these steps specifically for Teagan's team, I have vetted the process and trust it.  If you prefer to download the install program, make note of where you downloaded the file so that you can run it and then delete it when finished.  Open the folder where you downloaded the file installer and double click it to start the program.
 
 1. On the first page of the Python installer, there are two check boxes:  
 
-   ```text
-   o Use admin priveledges when installing py.exe
-   o Add python.exe to PATH
-   ```
+   - Use admin priveledges when installing py.exe
+   - Add python.exe to PATH
 
    be sure to check both of these before clicking **Install Now**.
 
    **_NOTE:_** There is no need to use the **Customize installation** option.
 
+1. Click **Yes** when asked, **Do you want to allow this app to make changes to your device?**
+
 1. After the installation completes, open a command prompt or terminal window and enter:  
 `python --version`  
 If the installation was successful, the Python version you installed should be printed in your command prompt or terminal window.
 
-1. Verify that pip is installed by entering:  
+1. Verify that **pip** is installed by entering:  
 `python -m ensurepip --upgrade`
 
 1. Install the **requests** Python package for the current user:  
@@ -70,23 +71,53 @@ If the installation was successful, the Python version you installed should be p
 
 There is a python script that will set up the pipeline for the project.  It will ensure that everyone is using the same verion of blender and that all the appropriate extensions are installed.
 
-1. Open a windows command prompt and execute the following commands.
+### Create the project folders
 
-   ```bat
-   mkdir c:\blender_pipeline
-   cd c:\blender_pipeline
-   mkdir capstone
-   mkdir capstone\shared
-   mkdir capstone\svn
-   mkdir flamenco
-   ```
+1. Find the **Command Prompt** app in the Windows Start Menu.  This is easily done by starting to type the word Command in the start menu search bar.
 
-1. Run the **deployment_assistant.py** script.
+   **_NOTE:_** If you happen to use be a **PowerShell** user, be sure to use the traditional command prompt for this particular section.  Bizaarrly, Microsoft does not include all of the commands needed in the PowerShell.
 
-   ```bat
-   cd capstone\svn
-   deployment_assistant.py
-   ```
+1. Right click on the **Command Prompt** app and choose **Run as administrator**.
+
+1. Click **Yes** when asked, **Do you want to allow this app to make changes to your device?**
+
+1. Execute the following commands in this terminal:
+
+   ```c:```  
+   ```mkdir c:\blender_pipeline```  
+   ```cd c:\blender_pipeline```  
+   ```mklink /D render \\skips.lab.ankersen.dev\blender_render```  
+   ```mkdir capstone```  
+   ```cd capstone```  
+   ```mklink /D shared \\skips.lab.ankersen.dev\blender_shared```  
+   ```mklink /D svn \\skips.lab.ankersen.dev\blender_vcs```
+
+1. Close this Administator Terminal.  It's generally not a good idea to leave an admin terminal open any longer than needed since it allows you to perform potentially damaging operations on your system.  Simply enter the command: ```exit```
+
+### Setup Access to the shared file server
+
+1. Ensure that your connection to the WireGuard VPN is active. (see above section on WireGuard)
+
+1. Open another **Command Prompt** but this time it should just be a normal execution.  **Do not run as an administrator**.
+
+1. Access the file share server with your unique username and password.
+
+   ```net use \\skips.lab.ankersen.dev /savecred```
+
+   **_NOTE:_** You will be prompted to enter the user name and password.
+
+1. To verify that you are connected to the file server, run the following commands:
+
+   ```dir c:\blender_pipeline\capstone\shared```  
+   ```dir c:\blender_pipeline\capstone\svn```  
+   ```dir c:\blender_pipeline\render```
+
+### Run the deployment_assistant.py script
+
+1. Execute the following commands in the terminal:
+
+   ```cd c:\blender_pipeline\capstone\svn\tools```  
+   ```deployment_assistant.py```
 
 ## Running Blender
 
