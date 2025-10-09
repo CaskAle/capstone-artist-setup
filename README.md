@@ -112,6 +112,10 @@ There is a python script that will set up the pipeline for the project.  It will
    ```dir c:\blender_pipeline\capstone\svn```  
    ```dir c:\blender_pipeline\render```
 
+   Each of these dir commands will show the contents of the respective folder.  If you see **File Not Found** then you have not successfully conected to the file server.
+
+1. You must be successfully connected to teh file server before moving to the next step.  Please reach out to me if you need assistance.
+
 ### Run the deployment_assistant.py script
 
 1. Execute the following commands in the terminal:
@@ -119,6 +123,46 @@ There is a python script that will set up the pipeline for the project.  It will
    ```cd c:\blender_pipeline\capstone\svn\tools```  
    ```deployment_assistant.py```
 
+   This script will run for some time and it will:
+
+   - Create a new folder under capstone called Local.
+
+   - The blender application and all its plugins are installed to Local.
+
+   - You will eventually be prompted to provide your Kitsu login information.
+
+   - Updates Blender with your Kitsu login information.
+
+1. If all has gone according to plan, the script will finish and your Blender Pipeline is ready to use.
+
+1. Close the Command Prompt, you are finished with it.  Simply enter the command: `exit`
+
 ## Running Blender
 
-## Set up Flamenco Rendering
+### Create a shortcut to the Capstone-Blender on your desktop
+
+The blender studio tools allow an artist to have multiple copies of blender installed.  Basically, there is a unique version of blender for every project an artist is working on.  This allows for different versions and different plug-ins for projects.  It will also not interfere with a self installed version of blender on your system so there is no conflict if you already have blender installed.
+
+However, because there are possibly multuple copies of blender in your system, you need a way to start the proper version for the project you are working on.  Fortunately, the pipline installs a helper script that will start the correct version of blender when you are working on the Capstone project.  All that is needed is to create a shortcut to that script on your desktop and then use it when you are woking on this project.  The easiest way to do that is via the Windows File Explorer.
+
+1. Open your File Explorer
+
+1. Click in the address bar at the top of the file explorer and enter: 
+
+   ```C:\blender_pipeline\capstone\svn\tools```
+
+1. Look for the file called: `launch_blender_win`
+
+1. Right-Click on that file and hold while dragging the file to a spot on your desktop.
+
+1. When you release the mouse button, a menu will appear.  Choose **Create shortcuts here** from that menu.
+
+1. You should now have a new item on your desktop called **launch_blender_win - Shortcut**.  Lets give it a more descriptive name.
+
+1. Right-Click on the new item and and slect **Rename** from the menu.
+
+1. Call the item `Studio Teagan - Blender`, or any other descriptive name you prefer.
+
+1. Once you have entered the new name, just hit the **Enter** key to confirm it.
+
+## Set up Flamenco Rendering Farm
