@@ -157,7 +157,7 @@ However, because there are possibly multuple copies of blender in your system, y
 
 1. When you release the mouse button, a menu will appear.  Choose **Create shortcuts here** from that menu.
 
-1. You should now have a new item on your desktop called **launch_blender_win - Shortcut**.  Lets give it a more descriptive name.
+1. You should now have a new item on your desktop called **launch_blender_win - Shortcut**.  Let's give it a more descriptive name.
 
 1. Right-Click on the new item and and slect **Rename** from the menu.
 
