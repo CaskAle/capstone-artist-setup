@@ -29,8 +29,8 @@ The Bender pipeline for Teagan's Capstone Project is being hosted on her parent'
    - There should be some data transferred showing in the peer section of the wireguard app.
 
    - Open a **Command Prompt** and type:  
-   `ping -c3 mordecai.lab.ankersen.dev` or  
-   `ping -c3 rigby.lab.ankersen.dev`.  
+   `ping -c3 mordecai.ankersen.dev` or  
+   `ping -c3 rigby.ankersen.dev`.  
    You should see a response similar to: 
    **Reply from 192.168.20.24 time=5ms**.  If you see any other response, there is a connection issue and we will need to debug.
 
@@ -84,13 +84,13 @@ There is a python script that will set up the pipeline for the project.  It will
 1. Execute the following commands in this terminal:
 
    ```c:```  
-   ```mkdir c:\blender_pipeline```  
-   ```cd c:\blender_pipeline```  
-   ```mklink /D render \\skips.lab.ankersen.dev\blender_render```  
+   ```mkdir c:\blender.pipeline```  
+   ```cd c:\blender.pipeline```  
+   ```mklink /D render \\skips.ankersen.dev\blender.render```  
    ```mkdir capstone```  
    ```cd capstone```  
-   ```mklink /D shared \\skips.lab.ankersen.dev\blender_shared```  
-   ```mklink /D svn \\skips.lab.ankersen.dev\blender_vcs```
+   ```mklink /D shared \\skips.ankersen.dev\blender.shared```  
+   ```mklink /D svn \\skips.ankersen.dev\blender.vcs```
 
 1. Close this Administator Terminal.  It's generally not a good idea to leave an admin terminal open any longer than needed since it allows you to perform potentially damaging operations on your system.  Simply enter the command: ```exit```
 
@@ -102,15 +102,15 @@ There is a python script that will set up the pipeline for the project.  It will
 
 1. Access the file share server with your unique username and password.
 
-   ```net use \\skips.lab.ankersen.dev /savecred```
+   ```net use \\skips.ankersen.dev /savecred```
 
    **_NOTE:_** You will be prompted to enter the user name and password.
 
 1. To verify that you are connected to the file server, run the following commands:
 
-   ```dir c:\blender_pipeline\capstone\shared```  
-   ```dir c:\blender_pipeline\capstone\svn```  
-   ```dir c:\blender_pipeline\render```
+   ```dir c:\blender.pipeline\capstone\shared```  
+   ```dir c:\blender.pipeline\capstone\svn```  
+   ```dir c:\blender.pipeline\render```
 
    Each of these dir commands will show the contents of the respective folder.  If you see **File Not Found** then you have not successfully conected to the file server.
 
@@ -120,7 +120,7 @@ There is a python script that will set up the pipeline for the project.  It will
 
 1. Execute the following commands in the terminal:
 
-   ```cd c:\blender_pipeline\capstone\svn\tools```  
+   ```cd c:\blender.pipeline\capstone\svn\tools```  
    ```deployment_assistant.py```
 
    This script will run for some time and it will:
@@ -149,7 +149,7 @@ However, because there are possibly multuple copies of blender in your system, y
 
 1. Click in the address bar at the top of the file explorer and enter: 
 
-   ```C:\blender_pipeline\capstone\svn\tools```
+   ```C:\blender.pipeline\capstone\svn\tools```
 
 1. Look for the file called: `launch_blender_win`
 
